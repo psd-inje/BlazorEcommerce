@@ -1,7 +1,7 @@
 global using BlazorEcommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using BlazorEcommerce.Server.Data;
-using BlazorEcommerce.Server.Data;
+global using BlazorEcommerce.Server.Services.ProductService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +20,8 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ContosoRecipes", Version = "v1" });
 });
 
+
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 
