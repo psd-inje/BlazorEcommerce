@@ -40,7 +40,8 @@
         {
             var response = new ServiceResponse<List<Product>>
             {
-                Data = await _context.Products.Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower())).ToListAsync()
+                Data = await _context.Products
+                .Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower())).ToListAsync()
             };
             return response;
         }
